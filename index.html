@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Risk Predictor</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>🫀 Heart Failure Risk Predictor</h2>
+        <form method="POST" action="/predict">
+            <input type="text" name="age" placeholder="Age" required>
+            <input type="text" name="anaemia" placeholder="Anaemia (1 or 0)" required>
+            <input type="text" name="creatinine_phosphokinase" placeholder="CPK Level" required>
+            <input type="text" name="diabetes" placeholder="Diabetes (1 or 0)" required>
+            <input type="text" name="ejection_fraction" placeholder="Ejection Fraction (%)" required>
+            <input type="text" name="high_blood_pressure" placeholder="High BP (1 or 0)" required>
+            <input type="text" name="platelets" placeholder="Platelet Count" required>
+            <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required>
+            <input type="text" name="serum_sodium" placeholder="Serum Sodium" required>
+            <input type="text" name="sex" placeholder="Sex (1 = Male, 0 = Female)" required>
+            <input type="text" name="smoking" placeholder="Smoking (1 or 0)" required>
+            <input type="text" name="time" placeholder="Follow-up Period (days)" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
